@@ -40,8 +40,8 @@ class Spaceflight < Gosu::Window
         @player.move
         @player.collect_stars(@stars)
 
-        if rand(100) < 4 and @stars.size < 25
-            @stars.push(Star.new(@star_anim))
+        if rand(100) < 10 and @stars.size < 200     # Increasing the < 10 number will increase spawn rate of stars
+            @stars.push(Star.new(@star_anim))       # Increasing the < 200 number will increase the total number of stars possible on screen
         end
     end
 
@@ -49,11 +49,11 @@ class Spaceflight < Gosu::Window
         @background_image.draw(0, 0, ZOrder::BACKGROUND) # drawn at x 0 , y 0 and z-order set by module
         @player.draw
         @stars.each { |star| star.draw}
-        @font.draw("Stars Collected: #{@player.score}", 10, 10, ZOrder::UI, 1.0, 1.0, Gosu::Color::WHITE)
+        @font.draw("Stars Collected: #{@player.score}", 325, 10, ZOrder::UI, 1.0, 1.0, Gosu::Color::WHITE)
     end
 
     def button_down(id)
-        if id == Gosu::KB_ESCAPE
+        if id == Gosu::KB_ESCAPE  #Escape key closes game window
             close
         else
             super
@@ -130,7 +130,7 @@ class Star
     def initialize(animation)
         @animation = animation
         @color = Gosu::Color::BLACK.dup
-        @color.red = rand(256 - 40) + 40 
+        @color.red = rand(256 - 40) + 40 #sets random color combinations of stars
         @color.green = rand(256 - 40) + 40 
         @color.blue = rand(256 - 40) + 40
         @x = rand * 800 # stars will spawn at a random position within the play area
@@ -138,14 +138,11 @@ class Star
     end
 
     def draw
-        img = @animation[Gosu.milliseconds / 100 % @animation.size] # shows a different frame every 100 milliseconds
-        img.draw(@x - img.width / 2.0, @y - img.height / 2.0,
+        img = @animation[Gosu.milliseconds / 100 % @animation.size]     # shows a different frame every 100 milliseconds 
+        img.draw(@x - img.width / 2.0, @y - img.height / 2.0,           # ie. illusion of spinning star
         ZOrder::STARS, 1, 1, @color, :add)
     end
 end
-
-
-
 
 
 

@@ -12,3 +12,5 @@ I modified different attributes, commented on the function of various methods an
 from the internet to put my own spin on the visual/audio look of the finished project.
 
 Thanks for checking it out!
+
+![screencap of in-game](https://github.com/Devon-Commits/ruby-space-game/tree/main/app/assets/media/screen-cap.png?raw=true)

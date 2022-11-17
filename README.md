@@ -13,4 +13,4 @@ from the internet to put my own spin on the visual/audio look of the finished pr
 
 Thanks for checking it out!
 
-[screencap of in-game](app/assets/media/screen-cap.png)
+[screencap of in-game](app/assets/media/screen-cap.png?raw=true)
